@@ -42,6 +42,40 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            Scaffold.of(context).openDrawer();
+          },
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.black,
+        child: Column(
+          children: [
+            //logo
+            DrawerHeader(child: Image.asset('assets/images/logo-png.webp'),
+            ),
+            Padding(
+            padding: const EdgeInsets.all(8.0),
+
+           child: Divider(
+              color: Colors.black,
+
+            )
+
+            //other pages
+
+
+
+            ), //
+          ],
+        ),
+      ),
+      body: _pages[_selectedIndex],
 
     );
   }
